@@ -1,0 +1,19 @@
+{
+    "name": "lubaaddons/matrix",
+    "description": "Array Matrix for Luba",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Flo Stone"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Luba\\": "src/helpers/"
+        },
+        "classmap": [
+            "src/aliases/"
+        ]
+    }
+}
+
