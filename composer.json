@@ -9,11 +9,8 @@
     ],
     "autoload": {
         "psr-4": {
-            "Luba\\": "src/helpers/"
-        },
-        "classmap": [
-            "src/aliases/"
-        ]
+            "Luba\\": "src/"
+        }
     }
 }
 
