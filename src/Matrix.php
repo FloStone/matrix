@@ -2,7 +2,9 @@
 
 namespace Luba;
 
-class Matrix
+use IteratorAggregate, JsonSerializable, ArrayIterator;
+
+class Matrix implements IteratorAggregate, JsonSerializable
 {
 	/**
 	 * Matrix
@@ -10,6 +12,10 @@ class Matrix
 	 */
 	protected $matrix = [];
 
+	/**
+	 * Constructor
+	 * @param array $matrix
+	 */
 	public function __construct(array $matrix = [])
 	{
 		$this->matrix = $matrix;
@@ -152,6 +158,8 @@ class Matrix
 			unset($this->matrix[$k][$key]);
 		}
 
+		$this->reset();
+
 		return $this;
 	}
 
@@ -198,5 +206,23 @@ class Matrix
 		}
 
 		return $matrix;
+	}
+
+	/**
+	 * Array iterator
+	 * @return ArrayIterator
+	 */
+	public function getIterator()
+	{
+		return new ArrayIterator($this->matrix);
+	}
+
+	/**
+	 * Json serialization
+	 * @return json
+	 */
+	public function jsonSerialize()
+	{
+		return json_encode($this->matrix);
 	}
 }
